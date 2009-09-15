@@ -1,6 +1,6 @@
 Name:           python-yenc
 Version:        0.3
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        yEnc Module for Python
 Group:          Development/Python
 License:        GPLv2+
