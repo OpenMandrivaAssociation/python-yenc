@@ -41,3 +41,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc README TODO COPYING
 %{py_platsitedir}/*
+
+
+%changelog
+* Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 0.3-2mdv2010.0
++ Revision: 442550
+- rebuild
+
+* Thu Mar 05 2009 Jérôme Soyer <saispo@mandriva.org> 0.3-1mdv2009.1
++ Revision: 348964
+- import python-yenc
+
+
