@@ -1,12 +1,11 @@
 Name:           python-yenc
-Version:        0.3
-Release:        %mkrel 2
+Version:        0.4.0
+Release:        1
 Summary:        yEnc Module for Python
 Group:          Development/Python
 License:        GPLv2+
 URL:            http://www.hellanzb.com/trac/
-Source0:        http://www.hellanzb.com/hellanzb-content/yenc-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Source0:        https://bitbucket.org/dual75/yenc/get/0.4.0.tar.gz
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 
@@ -20,21 +19,19 @@ in messages on Usenet or via e-mail.
 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" %{__python} -c 'import setuptools; execfile("setup.py")' build
+CFLAGS="%{optflags}" %{__python} -c 'import setuptools; execfile("setup.py")' build
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root $RPM_BUILD_ROOT
-chmod g-w $RPM_BUILD_ROOT/%{python_sitearch}/_yenc.so
+%{__python} -c 'import setuptools; execfile("setup.py")' install -O1 --skip-build --root %{buildroot}
+chmod g-w %{buildroot}/%{py_platsitedir}/_yenc.so
 
 
 %check
-PYTHONPATH="$PYTHONPATH:$RPM_BUILD_ROOT/%{python_sitearch}" %{__python} test/test.py
+PYTHONPATH="$PYTHONPATH:%{buildroot}/%{py_platsitedir}" %{__python} test/test.py
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %files
@@ -51,5 +48,6 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Mar 05 2009 Jérôme Soyer <saispo@mandriva.org> 0.3-1mdv2009.1
 + Revision: 348964
 - import python-yenc
+
 
 
