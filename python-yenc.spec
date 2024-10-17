@@ -6,7 +6,7 @@ Release:        2
 Summary:        yEnc Module for Python
 Group:          Development/Python
 License:        GPLv2+
-URL:            http://www.hellanzb.com/trac/
+URL:            https://www.hellanzb.com/trac/
 Source0:        https://bitbucket.org/dual75/yenc/get/0.4.0.tar.gz
 BuildRequires:  python-devel
 BuildRequires:  python-distribute
